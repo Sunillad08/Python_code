@@ -1,10 +1,10 @@
-j = input("Enter month : ")
-n = int(input("Enter no of days : "))
+month_name = input("Enter month : ")
+number_of_days = int(input("Enter no of days : "))
 print("\n")
-print("Average of " + j + " : ")
-for i in range(n,0,-1):
+print("Average of " + month_name + " : ")
+for i in range(number_of_days,0,-1):
     print("\n--------------------------------------------------\n")
-    print(str(i) +" "+ j +" : "+" /10")
+    print(str(i) +" "+ month_name +" : "+" /10")
     print("\nCompleted Task : ")
     print("•")
     print("\nDistractions and Mistakes : ")

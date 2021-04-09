@@ -213,7 +213,7 @@ def endscore():
 wn = Tk()
 wn.title("Chor Chithya Game")
 wn.geometry("300x300")
-#wn.resizable(0,0)
+wn.resizable(0,0)
 
 
 

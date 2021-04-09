@@ -1,3 +1,9 @@
+import tkinter as tk
+from tkinter import messagebox
+
+wn = tk.Tk()
+
+
 def timeInWords(h, m):
     naming_time = ["one","two","three","four","five","six","seven","eight","nine","ten","eleven","twelve"]
     naming_session = ["one minute","two minutes","three minutes","four minutes","five minutes","six minutes","seven minutes","eight minutes","nine minutes",
@@ -14,6 +20,8 @@ def timeInWords(h, m):
     else:
         return ("half past " + naming_time[h-1])    
     
+time_entry = tk.Entry(wn)
+output_label = tk.Label(wn, text = " " , ) 
 
 
 h , m = map(int, input().split(":"))
@@ -21,3 +29,5 @@ h , m = map(int, input().split(":"))
 result = timeInWords(h, m)
 
 print(result + '\n')
+
+wn.mainloop()

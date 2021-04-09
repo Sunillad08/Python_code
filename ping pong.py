@@ -176,14 +176,3 @@ while True:
         score_a += 1
         pen.clear()
         pen.write("Player orange: {}     Player Green: {}".format(score_a,score_b),align = "center" , font = ("courier", 24 , "normal"))
-
-
-    
-        
-        
-        
-        
-
-
-    
-
