@@ -6,7 +6,7 @@ from tkinter import messagebox
 wn = Tk()
 wn.title("Converter")
 wn.geometry("370x110")
-wn.resizable(0,0)
+#wn.resizable(0,0)
 
 
 ## Declaration
@@ -76,19 +76,21 @@ def convert():
 ## Componenets
 calculate = Button(wn , text = "Convert" , command = convert)
 input_label = Label(wn , text = "Enter value :" , width = 25)
-output_label = Label(wn , text = "Converted answer :" , width = 25)
-input_num = Entry(wn , width =25) 
+output_label = Label(wn , text = "Converted aNSEWr :" , width = 25)
+input_num = Entry(wn) 
 output_num = Entry(wn , width = 25)
 choice_1 = Button(wn, text="Morse Code to English",padx = 30 , command = lambda : check_state(0))
 choice_2 = Button(wn, text="English to Morse Code",padx = 30 , command = lambda : check_state(1))
 
 
+Grid.rowconfigure(wn,0,weight=1)
+Grid.columnconfigure(wn,0,weight=1)
 ## Placement
-input_label.grid( row = 2 , column =0)
-output_label.grid(row = 3 , column =0)
-input_num.grid(row = 2 , column = 1 )
-output_num.grid(row = 3 ,column = 1 ,rowspan = 3 )
-calculate.grid(row = 9 ,column = 0 ,columnspan = 2)
-choice_1.grid( row = 0 , column =1 )
-choice_2.grid( row = 0 , column =0 )
+input_label.grid( row = 2 , column =0 , sticky = "NSEW")
+output_label.grid(row = 3 , column =0 , sticky = "NSEW")
+input_num.grid(row = 2 , column = 1  , sticky = "NSEW")
+output_num.grid(row = 3 ,column = 1 ,rowspan = 3  , sticky = "NSEW")
+calculate.grid(row = 9 ,column = 0 ,columnspan = 2 , sticky = "NSEW")
+choice_1.grid( row = 0 , column =1  , sticky = "NSEW")
+choice_2.grid( row = 0 , column =0  , sticky = "NSEW" )
 wn.mainloop()
