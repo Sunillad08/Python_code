@@ -4,6 +4,7 @@ import sys
 import matplotlib.pyplot as plt
 import scipy.stats as sp
 import numpy as np
+import datetime
 
 # display average score
 def avg_marks(marks):
@@ -23,7 +24,7 @@ def analysis_of_data(marks):
 
 
 # taking data as input :
-print("Enter data With marking as x/10 and at End Press 2 times Enter and Ctrl + D : \n")
+print("Enter data and at End Press 2 times Enter and Ctrl + D : \n")
 all_data = sys.stdin.readlines()
 
 # getting data prepared for evaluation
@@ -31,10 +32,24 @@ data = " ".join(all_data)
 del all_data
 print(data)
 
+# get name of month
+try:
+    match = re.search(r"\d+\s(\w*)\s:",data)
+    start , end = match.span()
+    month_name = data[start:end].split(" ")[1]
+except Exception:
+    print("Data given is not in right format!")
+    sys.exit()
+
+# get year
+year = datetime.datetime.now().year
+
 filter_data = re.findall(r"(\d)/10" , data)
-print(len(filter_data))
 marks = [int(i) for i in filter_data]
 print(marks)
+
+if len(data) == 0:
+    raise ValueError("Data given is not in right format!") 
 
 avg_marks(marks) # display average marks
 display_count(marks) # display count of every marks
@@ -86,5 +101,8 @@ plt.title("Daily Marks Analysis")
 plt.ylabel("Daily Marks")
 plt.xlabel("Days")
 plt.legend()
+
+# saving file
+filename = "Figure_"+str(month_name)
 #plt.show()
-plt.savefig("Graph.png")
+plt.savefig(f"C:\\Users\\DELL\\Pictures\\Monthly Evaluation\\{year}\\{filename}.png")
