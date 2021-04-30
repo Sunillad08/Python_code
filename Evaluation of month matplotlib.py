@@ -17,9 +17,9 @@ def display_count(marks):
 def analysis_of_data(marks):
     print(f"\nLowest score was {min(marks)} and ocurred {marks.count(min(marks))} times")
     print(f"Highest score was {max(marks)} and ocurred {marks.count(max(marks))} times")
-    print(f"\nBelow satisfaction : {len([i for i in marks if i < 4 ])}")
-    print(f"Satisfactory : {len([i for i in marks if i < 7 and i > 3 ])}")
-    print(f"Good : {len([i for i in marks if i > 6 ])}")
+    print(f"\nBelow satisfaction : {len([i for i in marks if i <= 4 ])}")
+    print(f"Satisfactory : {len([i for i in marks if i < 7 and i > 4 ])}")
+    print(f"Good : {len([i for i in marks if i > 6 and i < 10])}")
     print(f"Best : {len([i for i in marks if i == 10 ])}")
 
 
