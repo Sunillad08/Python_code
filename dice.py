@@ -1,5 +1,6 @@
 import random
 import tkinter as tk
+import time
 
 # creating window
 wn = tk.Tk()
@@ -17,9 +18,17 @@ designs = ["""   \n • \n   """,
 """• •\n • \n• •""",
 """•••\n   \n•••"""]
 
+def animation():
+    global outcomes , designs
+    for i in range(100):
+        output = random.choice(outcomes)
+        label_outcome.config(text=f"{designs[output-1]}", font = ("Times New Roman" , 50))
+ 
+
 # roll_dice() : sets up text according to outcome
 def roll_dice():
     global outcomes , designs
+    animation()
     output = random.choice(outcomes)
     label_outcome.config(text=f"{designs[output-1]}", font = ("Times New Roman" , 50))
  

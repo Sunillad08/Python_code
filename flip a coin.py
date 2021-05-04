@@ -20,6 +20,7 @@ def flip_coin():
     canvas.delete()
     global outcomes , head , tail , wait
     canvas.create_image(200,140,anchor=tk.CENTER ,image=wait)
+    label_outcome.config(text = "flipping coin...")
     output = random.choice(outcomes)
     if output == "Heads":
         canvas.create_image(200,140,anchor=tk.CENTER ,image=head)
@@ -36,6 +37,8 @@ canvas.create_image(200,140,anchor=tk.CENTER ,image=wait)
 
 # set up weight
 for i in range(3):
+    wn.grid_columnconfigure(i , weight = 1)
+    wn.grid_rowconfigure(i, weight = 1)
     tk.Grid.rowconfigure(wn,i,weight=1)
     tk.Grid.columnconfigure(wn,i,weight=1)
 
