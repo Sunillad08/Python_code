@@ -103,6 +103,9 @@ plt.xlabel("Days")
 plt.legend()
 
 # saving file
-filename = "Figure_"+str(month_name)
+if len(marks) >=32:
+    filename = str(datetime.datetime.now().day) + str(len(marks))
+else:
+    filename = "Figure_"+str(month_name)
 #plt.show()
 plt.savefig(f"C:\\Users\\DELL\\Pictures\\Monthly Evaluation\\{year}\\{filename}.png")
