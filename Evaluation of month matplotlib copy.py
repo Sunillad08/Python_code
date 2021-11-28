@@ -23,10 +23,6 @@ def analysis_of_data(marks):
     print(f"Best : {len([i for i in marks if i == 10 ])}")
 
 
-# taking data as input :
-temp = int(input("Enter date of first monday : "))
-monday = [temp]
-
 print("Enter data and at End Press 2 times Enter and Ctrl + D : \n")
 all_data = sys.stdin.readlines()
 
@@ -43,6 +39,15 @@ try:
 except Exception:
     print("Data given is not in right format!")
     sys.exit()
+
+# finding monday :
+try:
+    temp = re.findall(r"First Monday : (\d)", data)
+    monday = [int(temp[0])]
+except Exception:
+    print("Error in data : First monday data missing!")
+    temp = int(input("Enter 1st monday : "))
+    monday = [temp]
 
 # get year
 year = datetime.datetime.now().year
@@ -116,5 +121,5 @@ if len(marks) >=32:
     filename = str(datetime.datetime.now().day) + str(len(marks))
 else:
     filename = "Figure_"+str(month_name)
-#plt.show()
+##plt.show()
 plt.savefig(f"C:\\Users\\DELL\\Pictures\\Monthly Evaluation\\{year}\\{filename}.png")
